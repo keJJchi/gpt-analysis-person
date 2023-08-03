@@ -1,0 +1,28 @@
+name: Build Go Binary
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.20'
+
+    - name: Build
+      run: go build -o gpt-analysis-person
+
+    - name: Archive Binary
+      uses: actions/upload-artifact@v2
+      with:
+        name: gpt-analysis-person
+        path: ./gpt-analysis-person
+
