@@ -24,7 +24,7 @@ jobs:
 
       - name: Create Release Archive
         run: |
-          tar -czf gpt-analysis-person.tar.gz myapp_linux
+          tar -czf gpt-analysis-person.tar.gz gpt-analysis-person
 
       - name: Upload Release Artifact
         uses: actions/upload-artifact@v2
